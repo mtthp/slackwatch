@@ -14,7 +14,7 @@
 package slackwatch
 
 import (
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 	"github.com/sirupsen/logrus"
 )
 
@@ -126,6 +126,10 @@ func (s *Slackwatch) Run() {
 func (s *Slackwatch) messageReceived(m Message) {
 	if m.IsFromMe() && m.Channel == "DM" {
 		if s.processCommand(m) {
+			return
+		}
+
+		if s.processMessage(m) {
 			return
 		}
 	}

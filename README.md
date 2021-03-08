@@ -25,3 +25,9 @@ Create a .slackwatch config file in your home directory. See config.json for an 
 Alternatively, you can create your own actions to preform that conform to the Action interface and pass your config to the slackwatch.New constructor.
 
 klaxon.wav is a public domain recording provided by the US Navy.
+
+## Docker
+
+```bash
+docker run -v $HOME/.slackwatch:/root/.slackwatch mtthp/slackwatch
+```
