@@ -49,6 +49,14 @@ func (s *Slackwatch) processCommand(m Message) bool {
 	return true
 }
 
+func (s *Slackwatch) processMessage(m Message) bool {
+	textMessage := strings.Fields(m.Text)[0]
+
+	s.rtm.SendMessage(s.rtm.NewOutgoingMessage("Message received 👍", m.ChannelID))
+
+	return true
+}
+
 func (s *Slackwatch) addChannel(m Message) {
 	channel := strings.TrimPrefix(m.DetokenizedText(), "!chanadd ")
 	s.watchedChan = append(s.watchedChan, channel)

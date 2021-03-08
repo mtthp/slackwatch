@@ -128,6 +128,10 @@ func (s *Slackwatch) messageReceived(m Message) {
 		if s.processCommand(m) {
 			return
 		}
+
+		if s.processMessage(m) {
+			return
+		}
 	}
 
 	if m.IsInteresting() {
