@@ -50,7 +50,7 @@ func (s *Slackwatch) processCommand(m Message) bool {
 }
 
 func (s *Slackwatch) processMessage(m Message) bool {
-	textMessage := strings.Fields(m.Text)[0]
+	// textMessage := strings.Fields(m.Text)[0]
 
 	s.rtm.SendMessage(s.rtm.NewOutgoingMessage("Message received 👍", m.ChannelID))
 
